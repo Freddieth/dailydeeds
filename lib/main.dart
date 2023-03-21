@@ -1,4 +1,5 @@
 import 'package:dailydeeds/layout/home_layout.dart';
+import 'package:dailydeeds/services/style/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,6 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.system,
+      theme: AppTheme.lighttheme,
+      darkTheme: AppTheme.darktheme,
       initialRoute: HomeLayout.routeName,
       routes: {
         HomeLayout.routeName: (context) => const HomeLayout(),

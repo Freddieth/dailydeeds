@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class HomeLayout extends StatefulWidget {
   static const String routeName = 'homelayout';
-  HomeLayout({super.key});
+  const HomeLayout({super.key});
 
   @override
   State<HomeLayout> createState() => _HomeLayoutState();
@@ -18,7 +18,24 @@ class _HomeLayoutState extends State<HomeLayout> {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        title: const Text('Daily Deeds'),
+        toolbarHeight: MediaQuery.of(context).size.height * 0.25,
+        flexibleSpace: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              margin: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.08),
+              child: Text(
+                'Daily Deeds',
+                style: TextStyle(
+                    color: Theme.of(context).colorScheme.background,
+                    fontFamily: 'Poppins',
+                    fontSize: 24.0),
+              ),
+            )
+          ],
+        ),
       ),
       body: tabs[selectedindex],
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

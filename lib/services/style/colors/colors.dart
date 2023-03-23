@@ -5,4 +5,4 @@ const Color colorgrey = Color(0xFFC8C9CB);
 const Color scaffoldBackgroundColorlight = Color(0xFFDFECDB);
 const Color scaffoldBackgroundColordark = Color(0xFF060E1E);
 const Color colorprimary = Color(0xFF5D9CEC);
-const Color colordark = Color(0xFF141922);
+const Color colordark = Color(0xFF1A1C1E);

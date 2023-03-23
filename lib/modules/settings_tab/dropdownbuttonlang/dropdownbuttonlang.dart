@@ -1,4 +1,6 @@
+import 'package:dailydeeds/services/provider/language/languageprovider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Dropdownbuttonlang extends StatefulWidget {
   const Dropdownbuttonlang({super.key});
@@ -8,10 +10,11 @@ class Dropdownbuttonlang extends StatefulWidget {
 }
 
 class _DropdownbuttonlangState extends State<Dropdownbuttonlang> {
-  int? selecteditem = 0;
+  int? selecteditem;
 
   @override
   Widget build(BuildContext context) {
+    var languageprovider = Provider.of<LanguageProvider>(context);
     return DropdownButtonHideUnderline(
       child: Container(
         padding: const EdgeInsets.all(5.0),
@@ -24,8 +27,10 @@ class _DropdownbuttonlangState extends State<Dropdownbuttonlang> {
                         .iconColor ??
                     Colors.transparent),
             borderRadius: BorderRadius.circular(25)),
-        child: DropdownButton(
-          value: selecteditem,
+        child: DropdownButton<int>(
+          value: languageprovider.currentlang == 'en'
+              ? selecteditem = 0
+              : selecteditem = 1,
           borderRadius: BorderRadius.circular(25),
           dropdownColor: Theme.of(context).colorScheme.background,
           elevation: 6,
@@ -39,7 +44,7 @@ class _DropdownbuttonlangState extends State<Dropdownbuttonlang> {
             DropdownMenuItem(
               value: 0,
               child: Text(
-                'ENGLISH',
+                'English',
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     color: Theme.of(context).appBarTheme.backgroundColor),
               ),
@@ -56,10 +61,17 @@ class _DropdownbuttonlangState extends State<Dropdownbuttonlang> {
           onChanged: (value) {
             setState(() {
               selecteditem = value;
+              isEn()
+                  ? languageprovider.changelang('en')
+                  : languageprovider.changelang('ar');
             });
           },
         ),
       ),
     );
+  }
+
+  bool isEn() {
+    return selecteditem == 0;
   }
 }

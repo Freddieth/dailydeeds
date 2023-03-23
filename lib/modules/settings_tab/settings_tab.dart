@@ -1,6 +1,7 @@
 import 'package:dailydeeds/modules/settings_tab/dropdownbuttonlang/dropdownbuttonlang.dart';
 import 'package:dailydeeds/modules/settings_tab/dropdownbuttontheme/dropdownbuttontheme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Settingstab extends StatelessWidget {
   const Settingstab({super.key});
@@ -13,7 +14,7 @@ class Settingstab extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Language',
+            AppLocalizations.of(context)!.language,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(
@@ -24,7 +25,7 @@ class Settingstab extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.03,
           ),
           Text(
-            'Theme',
+            AppLocalizations.of(context)!.theme,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(

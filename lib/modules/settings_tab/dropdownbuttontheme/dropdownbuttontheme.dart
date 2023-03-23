@@ -1,4 +1,7 @@
+import 'package:dailydeeds/services/provider/theme/themeprovider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DropdownButtontheme extends StatefulWidget {
   const DropdownButtontheme({super.key});
@@ -8,9 +11,10 @@ class DropdownButtontheme extends StatefulWidget {
 }
 
 class _DropdownButtonthemeState extends State<DropdownButtontheme> {
-  int? selecteditem = 0;
+  int? selecteditem;
   @override
   Widget build(BuildContext context) {
+    var themeprovider = Provider.of<ThemeProvider>(context);
     return DropdownButtonHideUnderline(
       child: Container(
         padding: const EdgeInsets.all(5.0),
@@ -23,8 +27,10 @@ class _DropdownButtonthemeState extends State<DropdownButtontheme> {
                         .iconColor ??
                     Colors.transparent),
             borderRadius: BorderRadius.circular(25)),
-        child: DropdownButton(
-          value: selecteditem,
+        child: DropdownButton<int>(
+          value: themeprovider.currenttheme == ThemeMode.light
+              ? selecteditem = 0
+              : selecteditem = 1,
           borderRadius: BorderRadius.circular(25),
           dropdownColor: Theme.of(context).colorScheme.background,
           elevation: 6,
@@ -38,7 +44,7 @@ class _DropdownButtonthemeState extends State<DropdownButtontheme> {
             DropdownMenuItem(
               value: 0,
               child: Text(
-                'Light',
+                AppLocalizations.of(context)!.light,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     color: Theme.of(context).appBarTheme.backgroundColor),
               ),
@@ -46,7 +52,7 @@ class _DropdownButtonthemeState extends State<DropdownButtontheme> {
             DropdownMenuItem(
               value: 1,
               child: Text(
-                'Dark',
+                AppLocalizations.of(context)!.dark,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     color: Theme.of(context).appBarTheme.backgroundColor),
               ),
@@ -55,10 +61,17 @@ class _DropdownButtonthemeState extends State<DropdownButtontheme> {
           onChanged: (value) {
             setState(() {
               selecteditem = value;
+              isDark()
+                  ? themeprovider.changetheme(ThemeMode.dark)
+                  : themeprovider.changetheme(ThemeMode.light);
             });
           },
         ),
       ),
     );
+  }
+
+  bool isDark() {
+    return selecteditem == 1;
   }
 }

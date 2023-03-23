@@ -1,0 +1,16 @@
+{
+  "daily_deeds": "يوميات",
+  "is_done": "تم",
+  "delete_task": "حذف",
+  "add_new_task": "إضافة مهمه ",
+  "title": "العنوان",
+  "description": "التفاصيل",
+  "select_date": "إختر التاريخ",
+  "edit_task": "تعديل المهمه",
+  "task_details": "تفاصيل المهمه",
+  "save_changes": "حفظ التغييرات",
+  "language": "اللغه",
+  "theme": "المظهر",
+  "light": "فاتح",
+  "dark": "داكن"
+}

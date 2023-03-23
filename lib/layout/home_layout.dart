@@ -1,6 +1,7 @@
 import 'package:dailydeeds/modules/list_tab/list_tab.dart';
 import 'package:dailydeeds/modules/settings_tab/settings_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeLayout extends StatefulWidget {
   static const String routeName = 'homelayout';
@@ -25,9 +26,10 @@ class _HomeLayoutState extends State<HomeLayout> {
           children: [
             Container(
               margin: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * 0.08),
+                  left: MediaQuery.of(context).size.width * 0.08,
+                  right: MediaQuery.of(context).size.width * 0.08),
               child: Text(
-                'Daily Deeds',
+                AppLocalizations.of(context)!.daily_deeds,
                 style: TextStyle(
                     color: Theme.of(context).colorScheme.background,
                     fontFamily: 'Poppins',
@@ -57,14 +59,8 @@ class _HomeLayoutState extends State<HomeLayout> {
                 });
               },
               items: const [
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.list),
-                    backgroundColor: Colors.white,
-                    label: ''),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.settings),
-                    backgroundColor: Colors.white,
-                    label: '')
+                BottomNavigationBarItem(icon: Icon(Icons.list), label: ''),
+                BottomNavigationBarItem(icon: Icon(Icons.settings), label: '')
               ])),
     );
   }

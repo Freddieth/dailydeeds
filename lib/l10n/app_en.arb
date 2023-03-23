@@ -1,0 +1,16 @@
+{
+  "daily_deeds": "Daily Deeds",
+  "is_done": "Done",
+  "delete_task": "Delete",
+  "add_new_task": "Add New Task",
+  "title": "Title",
+  "description": "Description",
+  "select_date": "Select Date",
+  "edit_task": "Edit Task",
+  "task_details": "Task Details",
+  "save_changes": "Save Changes",
+  "language": "Language",
+  "theme": "Theme",
+  "light": "Light",
+  "dark": "Dark"
+}

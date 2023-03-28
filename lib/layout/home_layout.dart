@@ -1,3 +1,4 @@
+import 'package:dailydeeds/layout/buttonbottomsheet/buttonbottomsheet.dart';
 import 'package:dailydeeds/modules/list_tab/list_tab.dart';
 import 'package:dailydeeds/modules/settings_tab/settings_tab.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,7 @@ class _HomeLayoutState extends State<HomeLayout> {
                 color: Theme.of(context).colorScheme.background, width: 4)),
         child: const Icon(Icons.add),
         onPressed: () {
-          // const Adddtaskbuttonsheet();
+          showaddtaskbottomsheet();
         },
       ),
       bottomNavigationBar: BottomAppBar(
@@ -69,5 +70,12 @@ class _HomeLayoutState extends State<HomeLayout> {
     );
   }
 
-  List<Widget> tabs = [Listtab(), Settingstab()];
+  List<Widget> tabs = [const Listtab(), Settingstab()];
+
+  void showaddtaskbottomsheet() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => const Adddtaskbuttonsheet(),
+    );
+  }
 }

@@ -39,7 +39,16 @@ class _ListtabState extends State<Listtab> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
           ),
-          Taskitem('Title', 'Description', 'Date/Time'),
+          Expanded(
+            child: ListView.builder(
+              itemBuilder: (context, index) => Taskitem(
+                'Title',
+                'Descroption',
+                'Date/Time',
+              ),
+              itemCount: 10,
+            ),
+          )
         ],
       ),
     );

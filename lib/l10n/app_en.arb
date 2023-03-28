@@ -6,6 +6,8 @@
   "title": "Title",
   "description": "Description",
   "select_date": "Select Date",
+  "submit": "Submit",
+  "please_enter_a_valid_value": "Please Enter A Valid Value",
   "edit_task": "Edit Task",
   "task_details": "Task Details",
   "save_changes": "Save Changes",

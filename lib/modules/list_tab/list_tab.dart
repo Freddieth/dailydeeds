@@ -22,8 +22,8 @@ class _ListtabState extends State<Listtab> {
           _selectedDate = date;
         });
       },
-      dayNameColor: Theme.of(context).colorScheme.onSecondary,
       leftMargin: 20,
+      dayNameColor: Theme.of(context).colorScheme.onSecondary,
       monthColor: Theme.of(context).colorScheme.secondary,
       dayColor: Theme.of(context).colorScheme.primary,
       activeDayColor: Theme.of(context).colorScheme.onSecondary,

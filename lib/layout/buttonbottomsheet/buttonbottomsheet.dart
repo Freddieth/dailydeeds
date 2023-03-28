@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Adddtaskbuttonsheet extends StatefulWidget {
   const Adddtaskbuttonsheet({super.key});
@@ -23,13 +24,14 @@ class _AdddtaskbuttonsheetState extends State<Adddtaskbuttonsheet> {
               height: MediaQuery.of(context).size.height * 0.02,
             ),
             Text(
-              'Add New Task',
+              AppLocalizations.of(context)!.add_new_task,
               style: Theme.of(context).textTheme.titleMedium,
             ),
             TextFormField(
               validator: (value) {
                 if (value!.trim().isEmpty) {
-                  return 'Please Enter A Valid Value';
+                  return AppLocalizations.of(context)!
+                      .please_enter_a_valid_value;
                 } else {
                   return null;
                 }
@@ -37,14 +39,15 @@ class _AdddtaskbuttonsheetState extends State<Adddtaskbuttonsheet> {
               controller: titlecontroler,
               decoration: InputDecoration(
                   label: Text(
-                'Title',
+                AppLocalizations.of(context)!.title,
                 style: Theme.of(context).textTheme.titleSmall,
               )),
             ),
             TextFormField(
               validator: (value) {
                 if (value!.trim().isEmpty) {
-                  return 'Please Enter A Valid Value';
+                  return AppLocalizations.of(context)!
+                      .please_enter_a_valid_value;
                 } else {
                   return null;
                 }
@@ -52,17 +55,17 @@ class _AdddtaskbuttonsheetState extends State<Adddtaskbuttonsheet> {
               controller: descreptioncontroler,
               decoration: InputDecoration(
                 label: Text(
-                  'Description',
+                  AppLocalizations.of(context)!.description,
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
               ),
-              maxLines: 3,
+              maxLines: 2,
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.02,
             ),
             Text(
-              'Select Date',
+              AppLocalizations.of(context)!.select_date,
               style: Theme.of(context).textTheme.titleMedium,
             ),
             SizedBox(
@@ -86,7 +89,7 @@ class _AdddtaskbuttonsheetState extends State<Adddtaskbuttonsheet> {
                         addtask();
                       },
                       child: Text(
-                        'Submet',
+                        AppLocalizations.of(context)!.submit,
                         style: Theme.of(context)
                             .textTheme
                             .titleMedium!
